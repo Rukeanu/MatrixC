@@ -35,8 +35,5 @@ int neg_size(int rows, int columns);
 int equal_size(matrix_t *A, matrix_t *B);
 int inf_or_nan(matrix_t *A);
 int size_mult(matrix_t *A, matrix_t *B);
-void record_determ_matrix(matrix_t *determ, matrix_t *A, int minor_row,
-                          int minor_col);
-void alg_complements(matrix_t *A, matrix_t *result);
 
 #endif

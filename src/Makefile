@@ -50,7 +50,7 @@ test: $(MATRIX)
 	gcc --coverage -g *.c $(PATH_TESTS) -I $(DIR_TESTS) $(TEST_LIBS) -o s21_test
 	./s21_test
 
-gcov_report: test
+gcov: test
 	lcov -t "gcovreport" -o gcovreport.info -c --directory .
 	genhtml -o report gcovreport.info
 	open report/index.html
@@ -62,7 +62,7 @@ leaks: clean test
 	leaks -atExit -- ./s21_test
 
 valgrind: clean test
-	valgrind --tool=memcheck --leak-check=full  --track-origins=yes ./s21_test
+	valgrind --tool=memcheck --leak-check=full --track-origins=yes ./s21_test
 
 rebuild: clean build
 
